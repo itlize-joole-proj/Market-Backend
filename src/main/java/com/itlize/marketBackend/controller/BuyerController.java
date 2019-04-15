@@ -42,7 +42,7 @@ public class BuyerController {
 		if (buyer == null) {
 			System.out.println("Not Found user!!! -> " + buyerName);
 			return null;
-		} else if (buyer.getPassword() != user.getPassword()) {
+		} else if (!buyer.getPassword().equals(user.getPassword())) {
 			System.out.println("Password not match!!!");
 			return null;
 		}
