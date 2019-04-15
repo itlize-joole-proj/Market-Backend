@@ -1,10 +1,11 @@
-package com.itlize.marketBackend.dao;
+package com.itlize.marketBackend.dao.impl;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.itlize.marketBackend.dao.BuyerDAO;
 import com.itlize.marketBackend.model.Buyer;
 
 @Repository
@@ -43,3 +44,5 @@ public class BuyerDAOImpl implements BuyerDAO {
 	
 
 }
+
+

@@ -30,9 +30,21 @@ public class BuyerController {
 	public Buyer getBuyer(@RequestBody Buyer user) {
 		String buyerName = user.getUsername();
 		String password = user.getPassword();
+		if (buyerName == null || buyerName.length() == 0) {
+			System.out.println("Please enter username!!!");
+			return null;
+		}
+		if (password == null || password.length() == 0) {
+			System.out.println("Please enter password");
+			return null;
+		}
 		Buyer buyer = buyerService.getBuyer(user.getUsername());
 		if (buyer == null) {
-			System.out.println("Not Found user!!! -> " + user);
+			System.out.println("Not Found user!!! -> " + buyerName);
+			return null;
+		} else if (buyer.getPassword() != user.getPassword()) {
+			System.out.println("Password not match!!!");
+			return null;
 		}
  
         return buyer;

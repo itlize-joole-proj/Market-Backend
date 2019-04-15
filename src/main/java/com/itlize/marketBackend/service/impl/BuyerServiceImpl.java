@@ -1,4 +1,4 @@
-package com.itlize.marketBackend.service;
+package com.itlize.marketBackend.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.itlize.marketBackend.dao.BuyerDAO;
 import com.itlize.marketBackend.model.Buyer;
+import com.itlize.marketBackend.service.BuyerService;
 
 @Service
 @Transactional
