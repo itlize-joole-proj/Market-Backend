@@ -30,9 +30,9 @@ public class BuyerServiceImpl implements BuyerService {
 	}
 
 	@Override
-	public Buyer addBuyer(Buyer user) {
+	public void addBuyer(Buyer buyer) {
 		// TODO Auto-generated method stub
-		return null;
+		buyerdao.addBuyer(buyer);;
 	}
 	
 
