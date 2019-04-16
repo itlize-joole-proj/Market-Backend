@@ -16,25 +16,33 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ProductID;
-	@Column
+	@Column(name = "ProductName")
 	private String name;
-	@Column
+	
+	@Column(name = "ProductDescription")
 	private String description;
-	@Column
-	private Date date;
-	@Column
+	
+//	@Column(name = "date")
+//	private Date date;
+	
+	@Column(name = "ManufactruerID")
 	private String manufacturerId;
-	@Column
+	
+	@Column(name = "SalesID")
 	private String saleId;
-	@Column
+	
+	@Column(name = "AttributeXML")
 	private String attributes; // Map<String, String> later
-	@Column
+	
+	@Column(name = "Details")
 	private String details; // List<String> later
-	@Column
+	
+	@Column(name = "DocumentXML")
 	private String documentUrl; // List<String> later
-
-	@Column
-
+	
+	@Column(name = "SubCategoryID")
+	private int subCategoryID;
+	
 	public int getProductID() {
 		return ProductID;
 	}
@@ -59,13 +67,13 @@ public class Product {
 		this.description = description;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
+//	public Date getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 
 	public String getManufacturerId() {
 		return manufacturerId;
@@ -105,6 +113,19 @@ public class Product {
 
 	public void setDocumentUrl(String documentUrl) {
 		this.documentUrl = documentUrl;
+	}
+
+	public int getSubCategoryID() {
+		return this.subCategoryID;
+	}
+
+	public void setSubCategoryID(int subCategoryID) {
+		this.subCategoryID = subCategoryID;
+	}
+	
+	@Override
+	public String toString() {
+		return "id: " + this.getProductID() + " name: " + this.getName();
 	}
 
 }
