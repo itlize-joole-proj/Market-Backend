@@ -1,12 +1,35 @@
 package com.itlize.marketBackend.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Sales")
 public class Sales {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int SalesID;
+	@Column
 	private String name;
+	@Column
 	private String phone;
+	@Column
 	private String email;
+	@Column
 	private String webUrl;
 	
 	
+	public int getSalesID() {
+		return SalesID;
+	}
+	public void setSalesID(int salesID) {
+		SalesID = salesID;
+	}
 	public String getName() {
 		return name;
 	}
