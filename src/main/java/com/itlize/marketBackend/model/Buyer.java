@@ -28,11 +28,11 @@ public class Buyer {
 	public int getBuyerID() {
 		return BuyerID;
 	}
-	
+
 	public void setBuyerID(int buyerID) {
 		BuyerID = buyerID;
 	}
-	
+
 //	public boolean isLogin() {
 //		return isLogin;
 //	}
