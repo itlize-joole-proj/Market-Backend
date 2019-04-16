@@ -30,16 +30,21 @@ public class BuyerServiceImpl implements BuyerService {
 	}
 
 	@Override
-	public void addBuyer(Buyer buyer) {
+	public boolean addBuyer(Buyer buyer) {
 		// TODO Auto-generated method stub
-		buyerdao.addBuyer(buyer);;
+//		if (isBuyerExist(buyer.getUsername())) {
+		if (buyerdao.isBuyerExist(buyer.getUsername())) {
+			return false;
+		}
+		buyerdao.addBuyer(buyer);
+		return true;
 	}
 	
 
 	@Override
 	public boolean isBuyerExist(String username) {
 		// TODO Auto-generated method stub
-		return false;
+		return buyerdao.getBuyer(username) != null;
 	}
 
 }

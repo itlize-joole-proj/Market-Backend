@@ -1,8 +1,14 @@
 package com.itlize.marketBackend.dao;
 
+import java.util.List;
+
 import com.itlize.marketBackend.model.Sales;
 
 public interface SalesDAO {
-	Sales getSales(String id);
-
+	
+	Sales getSale(int id);
+	List<Sales> getSale(String saleName);
+//	List<Sales> getAllSales(int manufactureID);
+//	boolean hasSale(String name);
+	
 }
