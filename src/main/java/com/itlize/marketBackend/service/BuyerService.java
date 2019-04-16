@@ -6,6 +6,6 @@ public interface BuyerService {
 //	Yipeng 
 	Buyer getBuyer(int buyerId);
 	Buyer getBuyer(String username);
-	Buyer addBuyer(Buyer buyer);
+	void addBuyer(Buyer buyer);
 	boolean isBuyerExist(String username);
 }
