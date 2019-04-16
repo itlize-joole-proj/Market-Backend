@@ -17,7 +17,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ProductID;
 	@Column
-	private String name;
+	private String productName;
 	@Column
 	private String description;
 	@Column
@@ -25,15 +25,15 @@ public class Product {
 	@Column
 	private String manufacturerId;
 	@Column
-	private String saleId;
+	private int saleId;
 	@Column
 	private String attributes; // Map<String, String> later
 	@Column
 	private String details; // List<String> later
 	@Column
 	private String documentUrl; // List<String> later
-
 	@Column
+	private int subCategoryId;
 
 	public int getProductID() {
 		return ProductID;
@@ -43,12 +43,12 @@ public class Product {
 		ProductID = productID;
 	}
 
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public String getDescription() {
@@ -75,11 +75,11 @@ public class Product {
 		this.manufacturerId = manufacturerId;
 	}
 
-	public String getSaleId() {
+	public int getSaleId() {
 		return saleId;
 	}
 
-	public void setSaleId(String saleId) {
+	public void setSaleId(int saleId) {
 		this.saleId = saleId;
 	}
 
@@ -105,6 +105,14 @@ public class Product {
 
 	public void setDocumentUrl(String documentUrl) {
 		this.documentUrl = documentUrl;
+	}
+	
+	public int getSubCategoryId() {
+		return subCategoryId;
+	}
+	
+	public void setSubCategoryId(int subCategoryId) {
+		this.subCategoryId = subCategoryId;
 	}
 
 }
