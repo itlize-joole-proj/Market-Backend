@@ -17,7 +17,7 @@ public class SubCategory {
 	@Column
 	private String subCategoryName;
 	@Column
-	private int categoryID;
+	private int CategoryID;
 
 	public int getSubCategoryID() {
 		return SubCategoryID;
@@ -36,11 +36,11 @@ public class SubCategory {
 	}
 
 	public int getCategoryID() {
-		return categoryID;
+		return CategoryID;
 	}
 
 	public void setCategoryID(int categoryID) {
-		this.categoryID = categoryID;
+		this.CategoryID = categoryID;
 	}
 
 }
