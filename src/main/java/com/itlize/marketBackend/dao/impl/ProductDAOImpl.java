@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.itlize.marketBackend.dao.ProductDAO;
 import com.itlize.marketBackend.model.Product;
 
+@Repository
 public class ProductDAOImpl implements ProductDAO {
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -37,7 +38,7 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public List<Product> filter(Map filterParams) {
+	public List<Product> filter(Map<String, String> filterParams) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -55,9 +56,9 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public Product createProduct(Product product) {
+	public void createProduct(Product product) {
 		// TODO Auto-generated method stub
-		return null;
+		sessionFactory.getCurrentSession().saveOrUpdate(product);
 	}
 
 }

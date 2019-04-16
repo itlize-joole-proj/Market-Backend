@@ -1,10 +1,7 @@
 package com.itlize.marketBackend.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 //import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +17,7 @@ public class BuyerController {
 //            .getLogger(BuyerController.class);
 	
 	public BuyerController() {
-		System.out.println("BuyerController...");
+		System.out.println("BuyerController initialization...");
 	}
 	
 	@Autowired
@@ -43,8 +40,11 @@ public class BuyerController {
 		if (new_buyer.getEmail() == null) {
 			System.out.println("Please enter email address");
 		}
-		buyerService.addBuyer(new_buyer);
-		System.out.println("Successfully register!!!");
+		if (!buyerService.addBuyer(new_buyer)) {
+			System.out.println("User already existed!!! Failed to register...");
+		} else {
+			System.out.println("Successfully register!!!");
+		}
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)

@@ -31,13 +31,18 @@ public class BuyerDAOImpl implements BuyerDAO {
 	// Yipeng
 	public Buyer getBuyer(String username) {
 		// TODO Auto-generated method stub
-		return (Buyer) sessionFactory.getCurrentSession().createCriteria(Buyer.class, "b").add(Restrictions.eq("b.username", username)).uniqueResult();
+		return (Buyer) sessionFactory.getCurrentSession()
+				.createCriteria(Buyer.class, "b")
+				.add(Restrictions.eq("b.username", username))
+				.uniqueResult();
 	}
 
 	@Override
 	public boolean isBuyerExist(String username) {
 		// TODO Auto-generated method stub
-		
+		if (getBuyer(username) != null) {
+			return true;
+		}
 		return false;
 	}
 	
