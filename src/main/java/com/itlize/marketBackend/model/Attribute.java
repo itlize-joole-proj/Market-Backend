@@ -17,9 +17,9 @@ public class Attribute {
 	@Column
 	private String AttributeName;
 	@Column
-	private int minVal;
+	private int minValue;
 	@Column
-	private int maxVal;
+	private int maxValue;
 	@Column
 	private int attributeTypeId;
 	@Column
@@ -41,20 +41,20 @@ public class Attribute {
 		AttributeName = attributeName;
 	}
 
-	public int getMinVal() {
-		return minVal;
+	public int getMinValue() {
+		return minValue;
 	}
 
-	public void setMinVal(int minVal) {
-		this.minVal = minVal;
+	public void setMinValue(int minValue) {
+		this.minValue = minValue;
 	}
 
-	public int getMaxVal() {
-		return maxVal;
+	public int getMaxValue() {
+		return maxValue;
 	}
 
-	public void setMaxVal(int maxVal) {
-		this.maxVal = maxVal;
+	public void setMaxValue(int maxValue) {
+		this.maxValue = maxValue;
 	}
 
 	public int getAttributeTypeId() {
