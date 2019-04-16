@@ -7,11 +7,11 @@ import com.itlize.marketBackend.model.Product;
 
 public interface ProductDAO {
 
-	List<Product> getAllProducts(String category, String subCategory);
+	List getAllSubCateProducts(int subCategoryID);
 
-	List<String> getSubCate(String Cate);
+	//List<String> getSubCate(String Cate);
 
-	Product getProduct(String suffix);// get all the information of one single product
+	Product getProduct(int productID);// get all the information of one single product
 
 	List<Product> filter(Map<String, String> filterParams);
 

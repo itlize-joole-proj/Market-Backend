@@ -9,7 +9,7 @@ import com.itlize.marketBackend.model.Sales;
 
 public interface ProductService {
 
-	List<Product> getAllSubCateProducts(int subCategoryID);
+	List getAllSubCateProducts(int subCategoryID);
 
 	Product getProduct(int ProductID);
 
