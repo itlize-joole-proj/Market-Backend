@@ -1,6 +1,9 @@
 HELP.md
+<<<<<<< HEAD
 
 bin
+=======
+>>>>>>> 2ab96c1356f95616cb51ffd30f217f4015fffa90
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
@@ -28,4 +31,8 @@ bin
 /build/
 
 ### VS Code ###
+<<<<<<< HEAD
 .vscode/
+=======
+.vscode/
+>>>>>>> 2ab96c1356f95616cb51ffd30f217f4015fffa90
