@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.itlize.marketBackend.dao.AttributeDAO;
 import com.itlize.marketBackend.dao.AttributeTypeDAO;
-import com.itlize.marketBackend.model.Attribute;
-import com.itlize.marketBackend.model.AttributeType;
+import com.itlize.marketBackend.domain.Attribute;
+import com.itlize.marketBackend.domain.AttributeType;
 import com.itlize.marketBackend.service.FilterService;
 
 @Service
