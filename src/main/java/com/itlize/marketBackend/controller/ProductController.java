@@ -1,5 +1,7 @@
 package com.itlize.marketBackend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +32,6 @@ public class ProductController {
 		// TODO Auto-generated constructor stub
 		System.out.println("ProductController initialization...");
 	}
-
-	@Autowired
-	ProductService productService;
 
 	@RequestMapping(value = "/Manufacturer/{id}", method = RequestMethod.GET)
 	public Manufacturer getManufacturerInfo(@PathVariable("id") String manuId) {

@@ -1,7 +1,5 @@
 package com.itlize.marketBackend.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +16,7 @@ public class Product {
 	private int ProductID;
 
 	@Column(name = "ProductName")
-	private String name;
+	private String productName;
 	
 	@Column(name = "ProductDescription")
 	private String description;
@@ -31,7 +29,7 @@ public class Product {
 
 	
 	@Column(name = "SalesID")
-	private String saleId;
+	private int saleId;
 	
 	@Column(name = "AttributeXML")
 
@@ -45,7 +43,7 @@ public class Product {
 
 	
 	@Column(name = "SubCategoryID")
-	private int subCategoryID;
+	private int subCategoryId;
 	
 
 	public int getProductID() {
@@ -127,18 +125,10 @@ public class Product {
 	public void setSubCategoryId(int subCategoryId) {
 		this.subCategoryId = subCategoryId;
 	}
-
-	public int getSubCategoryID() {
-		return this.subCategoryID;
-	}
-
-	public void setSubCategoryID(int subCategoryID) {
-		this.subCategoryID = subCategoryID;
-	}
 	
 	@Override
 	public String toString() {
-		return "id: " + this.getProductID() + " name: " + this.getName();
+		return "id: " + this.getProductID() + " name: " + this.getProductName();
 	}
 
 }
