@@ -93,7 +93,7 @@ public class XMLJSONHashMapConvertor {
 		final String xmlStr2 = "<Product>" + "   <power id=\"101\">" + "        <min>400</min>"
 				+ "       <max>5700</max>" + "   </power>" + "</Product>";
 
-		String jsonString = xmlStringtoJSON(xmlStr2);
+		String jsonString = xmlStringtoJSON(xml);
 		System.out.println("**************");
 		System.out.println(jsonString);
 

@@ -17,6 +17,35 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class xmlParser {
+
+	class MyNodeList implements NodeList {
+		List<Node> nodes = new ArrayList<Node>();
+		int length = 0;
+
+		public MyNodeList() {
+		}
+
+		public void addNode(Node node) {
+			nodes.add(node);
+			length++;
+		}
+
+		@Override
+		public Node item(int index) {
+			try {
+				return nodes.get(index);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			return null;
+		}
+
+		@Override
+		public int getLength() {
+			return length;
+		}
+	}
+
 	private String xmlString = "";
 	private File xmlFile = null;
 	private Document doc = null;
@@ -44,7 +73,7 @@ public class xmlParser {
 
 			NodeList resultNode = doc.getChildNodes();
 
-			HashMap result = new HashMap();
+			HashMap resultMap = new HashMap();
 			xmlParser.MyNodeList tempNodeList = new xmlParser.MyNodeList();
 
 			String emptyNodeName = null, emptyNodeValue = null;
@@ -59,12 +88,12 @@ public class xmlParser {
 			}
 
 			if (tempNodeList.getLength() == 0 && emptyNodeName != null && emptyNodeValue != null) {
-				result.put(emptyNodeName, emptyNodeValue);
-				return result;
+				resultMap.put(emptyNodeName, emptyNodeValue);
+				return resultMap;
 			}
 
-			this.parseXMLNode(tempNodeList, result);
-			return result;
+			this.parseXMLNode(tempNodeList, resultMap);
+			return resultMap;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;
@@ -148,68 +177,40 @@ public class xmlParser {
 		}
 	}
 
-	class MyNodeList implements NodeList {
-		List<Node> nodes = new ArrayList<Node>();
-		int length = 0;
+	// private static void print(Map map, Integer tab) {
+	// Iterator it = map.entrySet().iterator();
+	// while (it.hasNext()) {
+	// Map.Entry pairs = (Map.Entry) it.next();
+	// String key = pairs.getKey().toString();
+	// Object value = pairs.getValue();
+	// if (value instanceof Map) {
+	// System.out.println(getTab(tab) + key + " ==> [");
+	// print((Map) value, tab + 1);
+	// System.out.println(getTab(tab) + "]");
+	// } else if (value instanceof List) {
+	// System.out.println(getTab(tab) + key + " ==> [");
+	// print((List) value, tab + 1);
+	// System.out.println(getTab(tab) + "]");
+	// } else {
+	// System.out.println(getTab(tab) + key + " ==> " + value);
+	// }
+	// }
+	// }
 
-		public MyNodeList() {
-		}
-
-		public void addNode(Node node) {
-			nodes.add(node);
-			length++;
-		}
-
-		@Override
-		public Node item(int index) {
-			try {
-				return nodes.get(index);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			return null;
-		}
-
-		@Override
-		public int getLength() {
-			return length;
-		}
-	}
-
-	private static void print(Map map, Integer tab) {
-		Iterator it = map.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry pairs = (Map.Entry) it.next();
-			String key = pairs.getKey().toString();
-			Object value = pairs.getValue();
-			if (value instanceof Map) {
-				System.out.println(getTab(tab) + key + " ==> [");
-				print((Map) value, tab + 1);
-				System.out.println(getTab(tab) + "]");
-			} else if (value instanceof List) {
-				System.out.println(getTab(tab) + key + " ==> [");
-				print((List) value, tab + 1);
-				System.out.println(getTab(tab) + "]");
-			} else {
-				System.out.println(getTab(tab) + key + " ==> " + value);
-			}
-		}
-	}
-
-	private static void print(List list, Integer tab) {
-		for (Integer index = 0; index < list.size(); index++) {
-			Object value = list.get(index);
-			if (value instanceof Map) {
-				System.out.println(getTab(tab) + index.toString() + ": {");
-				print((Map) value, tab + 1);
-				System.out.println(getTab(tab) + "}");
-			} else if (value instanceof List) {
-				print((List) value, tab + 1);
-			} else {
-				System.out.println(getTab(tab) + index.toString() + ": " + value);
-			}
-		}
-	}
+	// private static void print(List list, Integer tab) {
+	// for (Integer index = 0; index < list.size(); index++) {
+	// Object value = list.get(index);
+	// if (value instanceof Map) {
+	// System.out.println(getTab(tab) + index.toString() + ": {");
+	// print((Map) value, tab + 1);
+	// System.out.println(getTab(tab) + "}");
+	// } else if (value instanceof List) {
+	// print((List) value, tab + 1);
+	// } else {
+	// System.out.println(getTab(tab) + index.toString() + ": " + value);
+	// }
+	// }
+	// }
 
 	public static String getTab(Integer tab) {
 		String string = "";
@@ -219,14 +220,27 @@ public class xmlParser {
 		return string;
 	}
 
-	public static void main(String[] args) {
-		String xmlString = "YOUR XML STRING HERE IF YOU WANT PARSE DATA FROM STRING";
-		File file = new File("Buyers.xml");
-		xmlParser xmlParser = new xmlParser(xmlString);
-		xmlParser = new xmlParser(file);
-
+	public static Map operation_inputXmlString(String xmlstring) {
+		xmlParser xmlParser = new xmlParser(xmlstring);
 		Map xmlMap = xmlParser.parseXML();
-		print(xmlMap, 0);
+		return xmlMap;
 	}
 
+	public static Map operation_inputXmlFile(File FileName) {
+		xmlParser xmlParser = new xmlParser(FileName);
+		Map xmlMap = xmlParser.parseXML();
+		return xmlMap;
+	}
+
+	public static void main(String[] args) {
+		final String xmlStr = "<employees>" + "   <employee id=\"101\">" + "        <name>Lokesh Gupta</name>"
+				+ "       <title>Author</title>" + "   </employee>" + "   <employee id=\"102\">"
+				+ "        <name>Brian Lara</name>" + "       <title>Cricketer</title>" + "   </employee>"
+				+ "</employees>";
+
+		System.out.println(operation_inputXmlString(xmlStr));
+
+		File file = new File("Buyers.xml");
+		System.out.println(operation_inputXmlFile(file));
+	}
 }
