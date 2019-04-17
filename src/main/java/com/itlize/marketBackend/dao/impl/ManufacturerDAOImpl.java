@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itlize.marketBackend.dao.ManufacturerDAO;
-import com.itlize.marketBackend.model.Buyer;
-import com.itlize.marketBackend.model.Manufacturer;
+import com.itlize.marketBackend.domain.Buyer;
+import com.itlize.marketBackend.domain.Manufacturer;
 
 @Repository
 public class ManufacturerDAOImpl implements ManufacturerDAO {

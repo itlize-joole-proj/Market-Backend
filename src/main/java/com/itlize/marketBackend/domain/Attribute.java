@@ -1,4 +1,4 @@
-package com.itlize.marketBackend.model;
+package com.itlize.marketBackend.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

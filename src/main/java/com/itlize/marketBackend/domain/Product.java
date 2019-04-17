@@ -1,6 +1,4 @@
-package com.itlize.marketBackend.model;
-
-import java.util.Date;
+package com.itlize.marketBackend.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,24 +14,37 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ProductID;
-	@Column
-	private String productName;
-	@Column
+
+	@Column(name = "ProductName")
+	private String name;
+	
+	@Column(name = "ProductDescription")
 	private String description;
-	@Column
-	private Date date;
-	@Column
+	
+//	@Column(name = "date")
+//	private Date date;
+	
+	@Column(name = "ManufactruerID")
 	private String manufacturerId;
-	@Column
+
+	
+	@Column(name = "SalesID")
 	private int saleId;
-	@Column
+	
+	@Column(name = "AttributeXML")
+
 	private String attributes; // Map<String, String> later
-	@Column
+	
+	@Column(name = "Details")
 	private String details; // List<String> later
-	@Column
+	
+	@Column(name = "DocumentXML")
 	private String documentUrl; // List<String> later
-	@Column
-	private int subCategoryId;
+
+	
+	@Column(name = "SubCategoryID")
+	private int subCategoryID;
+	
 
 	public int getProductID() {
 		return ProductID;
@@ -43,12 +54,12 @@ public class Product {
 		ProductID = productID;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setName(String productName) {
+		this.name = productName;
 	}
 
 	public String getDescription() {
@@ -59,13 +70,13 @@ public class Product {
 		this.description = description;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
+//	public Date getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 
 	public String getManufacturerId() {
 		return manufacturerId;
@@ -107,12 +118,18 @@ public class Product {
 		this.documentUrl = documentUrl;
 	}
 	
-	public int getSubCategoryId() {
-		return subCategoryId;
+
+	public int getSubCategoryID() {
+		return this.subCategoryID;
+	}
+
+	public void setSubCategoryID(int subCategoryID) {
+		this.subCategoryID = subCategoryID;
 	}
 	
-	public void setSubCategoryId(int subCategoryId) {
-		this.subCategoryId = subCategoryId;
+	@Override
+	public String toString() {
+		return "id: " + this.getProductID() + " name: " + this.getName();
 	}
 
 }
