@@ -18,13 +18,14 @@ public class FilterController {
 	@Autowired
 	private FilterService filterService;
 	
+	//	get all attribute of current subcatory
 	@RequestMapping(value = "/filter/{subCateId}", method = RequestMethod.GET)
 	public List<Attribute> getFilter(@PathVariable("subCateId")int subCategoryId) {
 		System.out.println("filter controller!!!");
 		return filterService.getFilterAttributes(subCategoryId);
 	}
 	
-	@RequestMapping(value = "/attributeTypes", method = RequestMethod.GET)
+	@RequestMapping(value = "/attributePart", method = RequestMethod.GET)
 	public List<AttributeType> getAllAttributeTypes() {
 		return filterService.getAllAttributeTypes();
 	}

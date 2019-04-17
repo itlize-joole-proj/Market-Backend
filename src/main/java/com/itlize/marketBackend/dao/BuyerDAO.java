@@ -9,5 +9,5 @@ public interface BuyerDAO {
 
 	Buyer getBuyer(String userName);
 
-	boolean isBuyerExist(String username);
+//	boolean isBuyerExist(String username);
 }

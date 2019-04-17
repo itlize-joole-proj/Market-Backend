@@ -1,6 +1,5 @@
 package com.itlize.marketBackend.dao.impl;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +21,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Product> getAllSubCateProducts(int subCategoryID) {
+	public List<Object[]> getAllSubCateProducts(int subCategoryID) {
 		// TODO Auto-generated method stub
 		Criteria cr = sessionFactory.getCurrentSession()
 									.createCriteria(Product.class, "p")
@@ -30,17 +29,7 @@ public class ProductDAOImpl implements ProductDAO {
 									.setProjection(Projections.projectionList()
 											.add(Projections.property("p.description"), "description")
 											.add(Projections.property("p.attributes"), "attributes"));
-		List<Object[]> rs = cr.list();
-		//below is the part to move to service layer
-		List<Product> ret = new LinkedList<>();
-		for(Object[] p: rs) {
-			System.out.println(p);
-			Product pdt = new Product();
-			pdt.setDescription((String) p[0]);
-			pdt.setAttributes((String) p[1]);
-			ret.add(pdt);
-		}
-		return ret;
+		return cr.list();
 	}
 
 //	@Override

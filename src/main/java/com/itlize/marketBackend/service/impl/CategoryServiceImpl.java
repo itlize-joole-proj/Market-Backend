@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.itlize.marketBackend.dao.CategoryDAO;
 import com.itlize.marketBackend.dao.SubCategoryDAO;
+import com.itlize.marketBackend.domain.AttributeType;
 import com.itlize.marketBackend.domain.SubCategory;
 import com.itlize.marketBackend.service.CategoryService;
 
@@ -36,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Boolean hasCategory(String category) {
 		// TODO Auto-generated method stub
-		return categoryDAO.hasCategory(category);
+		return categoryDAO.hasCategory(category) != null;
 	}
 
 }

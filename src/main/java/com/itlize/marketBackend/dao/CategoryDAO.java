@@ -1,8 +1,8 @@
 package com.itlize.marketBackend.dao;
 
 import java.util.List;
-import java.util.Map;
 
+import com.itlize.marketBackend.domain.Category;
 import com.itlize.marketBackend.domain.SubCategory;
 
 public interface CategoryDAO {
@@ -11,6 +11,8 @@ public interface CategoryDAO {
 
 	List<SubCategory> getSubCate(String Category);
 
-	Boolean hasCategory(String category);
+	Category hasCategory(String category);
+	
+//	List<AttributeType> getAllAttributeTypes();
 
 }

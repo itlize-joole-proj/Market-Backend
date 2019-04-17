@@ -37,16 +37,14 @@ public class BuyerDAOImpl implements BuyerDAO {
 				.uniqueResult();
 	}
 
-	@Override
-	public boolean isBuyerExist(String username) {
-		// TODO Auto-generated method stub
-		if (getBuyer(username) != null) {
-			return true;
-		}
-		return false;
-	}
-	
-	
+//	@Override
+//	public boolean isBuyerExist(String username) {
+//		// TODO Auto-generated method stub
+//		if (getBuyer(username) != null) {
+//			return true;
+//		}
+//		return false;
+//	}
 
 }
 
