@@ -33,7 +33,7 @@ public class BuyerServiceImpl implements BuyerService {
 	public boolean addBuyer(Buyer buyer) {
 		// TODO Auto-generated method stub
 //		if (isBuyerExist(buyer.getUsername())) {
-		if (buyerDao.isBuyerExist(buyer.getUsername())) {
+		if (this.isBuyerExist(buyer.getUsername())) {
 			return false;
 		}
 		buyerDao.addBuyer(buyer);

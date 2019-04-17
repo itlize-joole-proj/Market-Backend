@@ -23,26 +23,16 @@ public class CategoryDAOImpl implements CategoryDAO {
 		// TODO Auto-generated method stub
 		Category category = (Category) sessionFactory.getCurrentSession().createCriteria(Category.class, "c")
 				.add(Restrictions.eq("c.categoryName", Category)).uniqueResult();
-//		System.out.println("Category name: "+Category);
 		int categoryId = category.getCateGoryId();
-//		System.out.println("ID------>"+categoryId);
-		List<SubCategory> subCate_list = sessionFactory.getCurrentSession()
+		return sessionFactory.getCurrentSession()
 				.createQuery("From SubCategory where CategoryID = " + categoryId).list();
-		for (SubCategory sub : subCate_list) {
-			System.out.println(sub.getSubCategoryName());
-		}
-		return subCate_list;
 	}
 
 	@Override
-	public Boolean hasCategory(String cateName) {
+	public Category hasCategory(String cateName) {
 		// TODO Auto-generated method stub
-		Category category = (Category) sessionFactory.getCurrentSession().createCriteria(Category.class, "c")
+		return (Category) sessionFactory.getCurrentSession().createCriteria(Category.class, "c")
 				.add(Restrictions.eq("c.categoryName", cateName)).uniqueResult();
-		if (category == null) {
-			return false;
-		}
-		return true;
 	}
 
 }
