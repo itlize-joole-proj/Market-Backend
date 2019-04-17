@@ -26,7 +26,7 @@ public class Product {
 //	@Column(name = "date")
 //	private Date date;
 	
-	@Column(name = "ManufactruerID")
+	@Column(name = "ManufacturerID")
 	private String manufacturerId;
 
 	
@@ -56,11 +56,11 @@ public class Product {
 		ProductID = productID;
 	}
 
-	public String getProductName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setProductName(String productName) {
+	public void setName(String productName) {
 		this.name = productName;
 	}
 
@@ -131,7 +131,7 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return "id: " + this.getProductID() + " name: " + this.getProductName();
+		return "id: " + this.getProductID() + " name: " + this.getName();
 	}
 
 }
