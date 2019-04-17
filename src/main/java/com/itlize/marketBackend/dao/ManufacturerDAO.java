@@ -1,6 +1,6 @@
 package com.itlize.marketBackend.dao;
 
-import com.itlize.marketBackend.model.Manufacturer;
+import com.itlize.marketBackend.domain.Manufacturer;
 
 public interface ManufacturerDAO {
 	

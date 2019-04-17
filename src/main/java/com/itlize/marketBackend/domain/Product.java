@@ -1,4 +1,4 @@
-package com.itlize.marketBackend.model;
+package com.itlize.marketBackend.domain;
 
 import java.util.Date;
 
@@ -31,7 +31,7 @@ public class Product {
 
 	
 	@Column(name = "SalesID")
-	private String saleId;
+	private int saleId;
 	
 	@Column(name = "AttributeXML")
 
@@ -57,11 +57,11 @@ public class Product {
 	}
 
 	public String getProductName() {
-		return productName;
+		return name;
 	}
 
 	public void setProductName(String productName) {
-		this.productName = productName;
+		this.name = productName;
 	}
 
 	public String getDescription() {
@@ -120,13 +120,6 @@ public class Product {
 		this.documentUrl = documentUrl;
 	}
 	
-	public int getSubCategoryId() {
-		return subCategoryId;
-	}
-	
-	public void setSubCategoryId(int subCategoryId) {
-		this.subCategoryId = subCategoryId;
-	}
 
 	public int getSubCategoryID() {
 		return this.subCategoryID;
@@ -138,7 +131,7 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return "id: " + this.getProductID() + " name: " + this.getName();
+		return "id: " + this.getProductID() + " name: " + this.getProductName();
 	}
 
 }

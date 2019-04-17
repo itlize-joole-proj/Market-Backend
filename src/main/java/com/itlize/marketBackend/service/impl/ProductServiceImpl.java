@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.itlize.marketBackend.dao.ManufacturerDAO;
 import com.itlize.marketBackend.dao.ProductDAO;
 import com.itlize.marketBackend.dao.SalesDAO;
-import com.itlize.marketBackend.model.Manufacturer;
-import com.itlize.marketBackend.model.Product;
-import com.itlize.marketBackend.model.Sales;
+import com.itlize.marketBackend.domain.Manufacturer;
+import com.itlize.marketBackend.domain.Product;
+import com.itlize.marketBackend.domain.Sales;
 import com.itlize.marketBackend.service.ProductService;
 
 @Service
@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
 	ProductDAO productDao;
 
 	@Override
-	public List getAllSubCateProducts(int subCategoryID) {
+	public List<Product> getAllSubCateProducts(int subCategoryID) {
 		// TODO Auto-generated method stub
 		return productDao.getAllSubCateProducts(subCategoryID);
 	}
