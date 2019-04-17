@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.itlize.marketBackend.model.Attribute;
-import com.itlize.marketBackend.model.AttributeType;
+import com.itlize.marketBackend.domain.Attribute;
+import com.itlize.marketBackend.domain.AttributeType;
 import com.itlize.marketBackend.service.FilterService;
 
 @RestController

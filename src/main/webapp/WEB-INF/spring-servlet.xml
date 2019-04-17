@@ -52,7 +52,7 @@
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 			</props>
 		</property>
-		<property name="packagesToScan" value="com.itlize.marketBackend.model"></property>
+		<property name="packagesToScan" value="com.itlize.marketBackend.domain"></property>
 	</bean>
 
 	<!-- Transaction -->

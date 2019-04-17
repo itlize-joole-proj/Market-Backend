@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itlize.marketBackend.dao.BuyerDAO;
-import com.itlize.marketBackend.model.Buyer;
+import com.itlize.marketBackend.domain.Buyer;
 
 @Repository
 public class BuyerDAOImpl implements BuyerDAO {

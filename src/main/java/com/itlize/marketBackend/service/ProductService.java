@@ -3,13 +3,13 @@ package com.itlize.marketBackend.service;
 import java.util.List;
 import java.util.Map;
 
-import com.itlize.marketBackend.model.Manufacturer;
-import com.itlize.marketBackend.model.Product;
-import com.itlize.marketBackend.model.Sales;
+import com.itlize.marketBackend.domain.Manufacturer;
+import com.itlize.marketBackend.domain.Product;
+import com.itlize.marketBackend.domain.Sales;
 
 public interface ProductService {
 
-	List getAllSubCateProducts(int subCategoryID);
+	List<Product> getAllSubCateProducts(int subCategoryID);
 
 	Product getProduct(int ProductID);
 
