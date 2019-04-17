@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itlize.marketBackend.dao.CategoryDAO;
-import com.itlize.marketBackend.model.Category;
-import com.itlize.marketBackend.model.SubCategory;
+import com.itlize.marketBackend.domain.Category;
+import com.itlize.marketBackend.domain.SubCategory;
 
 @Repository
 public class CategoryDAOImpl implements CategoryDAO {

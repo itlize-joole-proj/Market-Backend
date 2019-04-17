@@ -2,7 +2,7 @@ package com.itlize.marketBackend.dao;
 
 import java.util.List;
 
-import com.itlize.marketBackend.model.Sales;
+import com.itlize.marketBackend.domain.Sales;
 
 public interface SalesDAO {
 	

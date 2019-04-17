@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.itlize.marketBackend.dao.BuyerDAO;
-import com.itlize.marketBackend.model.Buyer;
+import com.itlize.marketBackend.domain.Buyer;
 import com.itlize.marketBackend.service.BuyerService;
 
 @Service
@@ -13,30 +13,30 @@ import com.itlize.marketBackend.service.BuyerService;
 public class BuyerServiceImpl implements BuyerService {
 	
 	@Autowired
-	BuyerDAO buyerdao;
+	BuyerDAO buyerDao;
 
 	@Override
 //	Yipeng
 	public Buyer getBuyer(int buyerId) {
 		// TODO Auto-generated method stub
-		return buyerdao.getBuyer(buyerId);
+		return buyerDao.getBuyer(buyerId);
 	}
 	
 	@Override
 //	Yipeng
 	public Buyer getBuyer(String username) {
 		// TODO Auto-generated method stub
-		return buyerdao.getBuyer(username);
+		return buyerDao.getBuyer(username);
 	}
 
 	@Override
 	public boolean addBuyer(Buyer buyer) {
 		// TODO Auto-generated method stub
 //		if (isBuyerExist(buyer.getUsername())) {
-		if (buyerdao.isBuyerExist(buyer.getUsername())) {
+		if (buyerDao.isBuyerExist(buyer.getUsername())) {
 			return false;
 		}
-		buyerdao.addBuyer(buyer);
+		buyerDao.addBuyer(buyer);
 		return true;
 	}
 	
@@ -44,7 +44,21 @@ public class BuyerServiceImpl implements BuyerService {
 	@Override
 	public boolean isBuyerExist(String username) {
 		// TODO Auto-generated method stub
-		return buyerdao.getBuyer(username) != null;
+		return buyerDao.getBuyer(username) != null;
 	}
+
+	@Override
+	public Buyer validation(String username, String password) {
+		// TODO Auto-generated method stub
+		Buyer buyer = buyerDao.getBuyer(username);
+		if(buyer != null) {
+			if(buyer.getPassword().equals(password)) return buyer;
+			else buyer.setMessage("Username and password does not match!");
+		}
+		Buyer b = new Buyer();
+		b.setMessage("Username not found!");
+		return b;
+	}
+
 
 }

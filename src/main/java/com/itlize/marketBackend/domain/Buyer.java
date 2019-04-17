@@ -1,4 +1,4 @@
-package com.itlize.marketBackend.model;
+package com.itlize.marketBackend.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,6 +24,8 @@ public class Buyer {
 	private String email;
 	@Column
 	private String password;
+	
+	private transient String message;
 
 	public int getBuyerID() {
 		return BuyerID;
@@ -79,6 +81,14 @@ public class Buyer {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

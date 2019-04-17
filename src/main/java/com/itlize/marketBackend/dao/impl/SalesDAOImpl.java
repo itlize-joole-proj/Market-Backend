@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itlize.marketBackend.dao.SalesDAO;
-import com.itlize.marketBackend.model.Sales;
+import com.itlize.marketBackend.domain.Sales;
 
 @Repository
 public class SalesDAOImpl implements SalesDAO {

@@ -1,4 +1,4 @@
-package com.itlize.marketBackend.model;
+package com.itlize.marketBackend.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ public class Product {
 	private int ProductID;
 
 	@Column(name = "ProductName")
-	private String productName;
+	private String name;
 	
 	@Column(name = "ProductDescription")
 	private String description;
@@ -43,7 +43,7 @@ public class Product {
 
 	
 	@Column(name = "SubCategoryID")
-	private int subCategoryId;
+	private int subCategoryID;
 	
 
 	public int getProductID() {
@@ -54,12 +54,12 @@ public class Product {
 		ProductID = productID;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setName(String productName) {
+		this.name = productName;
 	}
 
 	public String getDescription() {
@@ -118,17 +118,18 @@ public class Product {
 		this.documentUrl = documentUrl;
 	}
 	
-	public int getSubCategoryId() {
-		return subCategoryId;
+
+	public int getSubCategoryID() {
+		return this.subCategoryID;
 	}
-	
-	public void setSubCategoryId(int subCategoryId) {
-		this.subCategoryId = subCategoryId;
+
+	public void setSubCategoryID(int subCategoryID) {
+		this.subCategoryID = subCategoryID;
 	}
 	
 	@Override
 	public String toString() {
-		return "id: " + this.getProductID() + " name: " + this.getProductName();
+		return "id: " + this.getProductID() + " name: " + this.getName();
 	}
 
 }

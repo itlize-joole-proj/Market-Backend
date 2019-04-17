@@ -3,11 +3,11 @@ package com.itlize.marketBackend.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.itlize.marketBackend.model.Product;
+import com.itlize.marketBackend.domain.Product;
 
 public interface ProductDAO {
 
-	List getAllSubCateProducts(int subCategoryID);
+	List<Product> getAllSubCateProducts(int subCategoryID);
 
 	//List<String> getSubCate(String Cate);
 
