@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.itlize.marketBackend.model.Attribute;
+import com.itlize.marketBackend.domain.Attribute;
+import com.itlize.marketBackend.domain.AttributeType;
 import com.itlize.marketBackend.service.FilterService;
 
 @RestController
@@ -21,6 +22,11 @@ public class FilterController {
 	public List<Attribute> getFilter(@PathVariable("subCateId")int subCategoryId) {
 		System.out.println("filter controller!!!");
 		return filterService.getFilterAttributes(subCategoryId);
+	}
+	
+	@RequestMapping(value = "/attributeTypes", method = RequestMethod.GET)
+	public List<AttributeType> getAllAttributeTypes() {
+		return filterService.getAllAttributeTypes();
 	}
 	
 }

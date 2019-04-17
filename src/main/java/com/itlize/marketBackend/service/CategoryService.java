@@ -1,9 +1,8 @@
 package com.itlize.marketBackend.service;
 
 import java.util.List;
-import java.util.Map;
 
-import com.itlize.marketBackend.model.SubCategory;
+import com.itlize.marketBackend.domain.SubCategory;
 
 public interface CategoryService {
 	

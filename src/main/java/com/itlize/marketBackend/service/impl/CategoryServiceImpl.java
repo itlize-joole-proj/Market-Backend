@@ -1,7 +1,6 @@
 package com.itlize.marketBackend.service.impl;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.itlize.marketBackend.dao.CategoryDAO;
 import com.itlize.marketBackend.dao.SubCategoryDAO;
-import com.itlize.marketBackend.model.SubCategory;
+import com.itlize.marketBackend.domain.SubCategory;
 import com.itlize.marketBackend.service.CategoryService;
 
 @Service

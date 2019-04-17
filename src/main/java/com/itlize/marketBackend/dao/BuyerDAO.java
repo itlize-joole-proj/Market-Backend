@@ -1,6 +1,6 @@
 package com.itlize.marketBackend.dao;
 
-import com.itlize.marketBackend.model.Buyer;
+import com.itlize.marketBackend.domain.Buyer;
 
 public interface BuyerDAO {
 	void addBuyer(Buyer buyer);

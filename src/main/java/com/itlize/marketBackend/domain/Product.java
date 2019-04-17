@@ -1,6 +1,4 @@
-package com.itlize.marketBackend.model;
-
-import java.util.Date;
+package com.itlize.marketBackend.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,24 +14,37 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ProductID;
-	@Column
+
+	@Column(name = "ProductName")
 	private String name;
-	@Column
+	
+	@Column(name = "ProductDescription")
 	private String description;
-	@Column
-	private Date date;
-	@Column
+	
+//	@Column(name = "date")
+//	private Date date;
+	
+	@Column(name = "ManufactruerID")
 	private String manufacturerId;
-	@Column
-	private String saleId;
-	@Column
+
+	
+	@Column(name = "SalesID")
+	private int saleId;
+	
+	@Column(name = "AttributeXML")
+
 	private String attributes; // Map<String, String> later
-	@Column
+	
+	@Column(name = "Details")
 	private String details; // List<String> later
-	@Column
+	
+	@Column(name = "DocumentXML")
 	private String documentUrl; // List<String> later
 
-	@Column
+	
+	@Column(name = "SubCategoryID")
+	private int subCategoryID;
+	
 
 	public int getProductID() {
 		return ProductID;
@@ -47,8 +58,8 @@ public class Product {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String productName) {
+		this.name = productName;
 	}
 
 	public String getDescription() {
@@ -59,13 +70,13 @@ public class Product {
 		this.description = description;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
+//	public Date getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 
 	public String getManufacturerId() {
 		return manufacturerId;
@@ -75,11 +86,11 @@ public class Product {
 		this.manufacturerId = manufacturerId;
 	}
 
-	public String getSaleId() {
+	public int getSaleId() {
 		return saleId;
 	}
 
-	public void setSaleId(String saleId) {
+	public void setSaleId(int saleId) {
 		this.saleId = saleId;
 	}
 
@@ -105,6 +116,20 @@ public class Product {
 
 	public void setDocumentUrl(String documentUrl) {
 		this.documentUrl = documentUrl;
+	}
+	
+
+	public int getSubCategoryID() {
+		return this.subCategoryID;
+	}
+
+	public void setSubCategoryID(int subCategoryID) {
+		this.subCategoryID = subCategoryID;
+	}
+	
+	@Override
+	public String toString() {
+		return "id: " + this.getProductID() + " name: " + this.getName();
 	}
 
 }

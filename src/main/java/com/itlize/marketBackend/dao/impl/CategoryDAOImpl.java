@@ -1,9 +1,6 @@
 package com.itlize.marketBackend.dao.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -11,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itlize.marketBackend.dao.CategoryDAO;
-import com.itlize.marketBackend.model.Category;
-import com.itlize.marketBackend.model.SubCategory;
+import com.itlize.marketBackend.domain.Category;
+import com.itlize.marketBackend.domain.SubCategory;
 
 @Repository
 public class CategoryDAOImpl implements CategoryDAO {
@@ -26,9 +23,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 		// TODO Auto-generated method stub
 		Category category = (Category) sessionFactory.getCurrentSession().createCriteria(Category.class, "c")
 				.add(Restrictions.eq("c.categoryName", Category)).uniqueResult();
+//		System.out.println("Category name: "+Category);
 		int categoryId = category.getCateGoryId();
-		List<SubCategory> subCate_list = sessionFactory.getCurrentSession().createCriteria(SubCategory.class, "sc")
-				.add(Restrictions.eq("sc.SubCategoryID", categoryId)).list();
+//		System.out.println("ID------>"+categoryId);
+		List<SubCategory> subCate_list = sessionFactory.getCurrentSession()
+				.createQuery("From SubCategory where CategoryID = " + categoryId).list();
+		for (SubCategory sub : subCate_list) {
+			System.out.println(sub.getSubCategoryName());
+		}
 		return subCate_list;
 	}
 

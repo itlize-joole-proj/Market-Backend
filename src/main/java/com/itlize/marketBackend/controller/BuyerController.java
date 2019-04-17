@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.itlize.marketBackend.model.Buyer;
+import com.itlize.marketBackend.domain.Buyer;
 import com.itlize.marketBackend.service.BuyerService;
 
 @RestController

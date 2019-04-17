@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itlize.marketBackend.dao.AttributeDAO;
-import com.itlize.marketBackend.model.Attribute;
+import com.itlize.marketBackend.domain.Attribute;
 
 @Repository
 public class AttributeDAOImpl implements AttributeDAO{
