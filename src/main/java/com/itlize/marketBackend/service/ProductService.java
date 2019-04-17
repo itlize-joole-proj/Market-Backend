@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.itlize.marketBackend.domain.Manufacturer;
 import com.itlize.marketBackend.domain.Product;
+import com.itlize.marketBackend.domain.Range;
 import com.itlize.marketBackend.domain.Sales;
 
 public interface ProductService {
@@ -13,7 +14,7 @@ public interface ProductService {
 
 	Product getProduct(int ProductID);
 
-	List<Product> filter(Map<String, String> filterParams);
+	List<Product> filter(Map<String, Object> filterParams, int subCategotyId);
 
 	List<Product> compare(List<Product> productIds); // Fronted creates Map
 

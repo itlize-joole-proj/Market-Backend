@@ -24,7 +24,7 @@ public class Product {
 //	@Column(name = "date")
 //	private Date date;
 	
-	@Column(name = "ManufactruerID")
+	@Column(name = "ManufacturerID")
 	private String manufacturerId;
 
 	
