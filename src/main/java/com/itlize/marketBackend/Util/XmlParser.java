@@ -221,14 +221,14 @@ public class xmlParser {
 	}
 
 	public static Map operation_inputXmlString(String xmlstring) {
-		xmlParser xmlParser = new xmlParser(xmlstring);
-		Map xmlMap = xmlParser.parseXML();
+		xmlParser XmlParser = new xmlParser(xmlstring);
+		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
 
 	public static Map operation_inputXmlFile(File FileName) {
-		xmlParser xmlParser = new xmlParser(FileName);
-		Map xmlMap = xmlParser.parseXML();
+		xmlParser XmlParser = new xmlParser(FileName);
+		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
 
@@ -237,10 +237,13 @@ public class xmlParser {
 				+ "       <title>Author</title>" + "   </employee>" + "   <employee id=\"102\">"
 				+ "        <name>Brian Lara</name>" + "       <title>Cricketer</title>" + "   </employee>"
 				+ "</employees>";
+		System.out.println(xmlStr);
+		String s = "<product><Air.flow>6000</Air.flow><MaxPower>20</MaxPower></product>";
+		Map map = operation_inputXmlString(s);
+		System.out.println(map);
+		for(Object o: map.values()) System.out.println(o);
 
-		System.out.println(operation_inputXmlString(xmlStr));
-
-		File file = new File("Buyers.xml");
-		System.out.println(operation_inputXmlFile(file));
+//		File file = new File("Buyers.xml");
+//		System.out.println(operation_inputXmlFile(file));
 	}
 }
