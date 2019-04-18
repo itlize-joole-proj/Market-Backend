@@ -13,16 +13,16 @@ public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int cateGoryId;
+	private int categoryId;
 	@Column
 	private String categoryName;
 
-	public int getCateGoryId() {
-		return cateGoryId;
+	public int getCategoryId() {
+		return categoryId;
 	}
 
-	public void setCateGoryId(int cateGoryId) {
-		this.cateGoryId = cateGoryId;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getCategoryName() {

@@ -24,15 +24,27 @@ public class BuyerServiceImpl implements BuyerService {
 	
 	@Override
 //	Yipeng
-	public Buyer getBuyer(String username) {
+	public Buyer getBuyer(Buyer buyer) throws Throwable {
 		// TODO Auto-generated method stub
-		return buyerDao.getBuyer(username);
+		String buyerName = buyer.getUsername();
+		String password = buyer.getPassword();
+		if (buyerName == null || buyerName.length() == 0 || password == null || password.length() == 0) {
+			throw new Exception("Please enter the username and password");
+		}
+		
+		return buyerDao.getBuyer(buyerName);
 	}
 
 	@Override
-	public boolean addBuyer(Buyer buyer) {
+	public boolean addBuyer(Buyer buyer) throws Throwable {
 		// TODO Auto-generated method stub
-//		if (isBuyerExist(buyer.getUsername())) {
+		if (buyer.getUsername() == null
+				|| buyer.getPassword() == null
+				|| buyer.getFirstname() == null
+				|| buyer.getLastname() == null
+				|| buyer.getEmail() == null) {
+			throw new Exception("Please fill the required information!!!");
+		}
 		if (this.isBuyerExist(buyer.getUsername())) {
 			return false;
 		}

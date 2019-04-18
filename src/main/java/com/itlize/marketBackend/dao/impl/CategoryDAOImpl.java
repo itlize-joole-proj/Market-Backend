@@ -19,11 +19,18 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<SubCategory> getSubCate(String Category) {
+	public List<SubCategory> getSubCate(String Category) throws Throwable {
 		// TODO Auto-generated method stub
 		Category category = (Category) sessionFactory.getCurrentSession().createCriteria(Category.class, "c")
 				.add(Restrictions.eq("c.categoryName", Category)).uniqueResult();
-		int categoryId = category.getCateGoryId();
+//		try catch here, when id is null
+		int categoryId = 0;
+		try {
+			categoryId = category.getCategoryId();
+		}
+		catch (NullPointerException e) {
+			throw new Exception("Category doesn't exist!!!");
+		}
 		return sessionFactory.getCurrentSession()
 				.createQuery("From SubCategory where CategoryID = " + categoryId).list();
 	}

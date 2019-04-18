@@ -17,8 +17,8 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 
-	@RequestMapping(value = "/SubCategory-{subCategory}", method = RequestMethod.GET)
-	public boolean hasSubCate(@PathVariable("subCategory") String subCatoryName) {
+	@RequestMapping(value = "/SubCategoryExist/{subCategoryName}", method = RequestMethod.GET)
+	public boolean hasSubCate(@PathVariable("subCategoryName") String subCatoryName) {
 
 		boolean hasSubCate = categoryService.hasSubCategory(subCatoryName);
 		System.out.println(hasSubCate);
@@ -26,8 +26,8 @@ public class CategoryController {
 
 	}
 
-	@RequestMapping(value = "/Category-{Category}/SubCates", method = RequestMethod.GET)
-	public List<SubCategory> getSubCateByCate(@PathVariable("Category") String category) {
+	@RequestMapping(value = "/Category/{CategoryName}/SubCates", method = RequestMethod.GET)
+	public List<SubCategory> getSubCateByCate(@PathVariable("CategoryName") String category) throws Throwable {
 
 		List<SubCategory> subCate = categoryService.getSubCate(category);
 		boolean hasCate = categoryService.hasCategory(category);
