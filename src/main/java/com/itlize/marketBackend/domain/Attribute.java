@@ -17,9 +17,11 @@ public class Attribute {
 	@Column
 	private String AttributeName;
 	@Column
-	private int minValue;
+	private byte isRange;
 	@Column
-	private int maxValue;
+	private Integer minValue;
+	@Column
+	private Integer maxValue;
 	@Column
 	private int attributeTypeId;
 	@Column
@@ -41,19 +43,27 @@ public class Attribute {
 		AttributeName = attributeName;
 	}
 
-	public int getMinValue() {
+	public byte getIsRange() {
+		return isRange;
+	}
+
+	public void setIsRange(byte isRange) {
+		this.isRange = isRange;
+	}
+
+	public Integer getMinValue() {
 		return minValue;
 	}
 
-	public void setMinValue(int minValue) {
+	public void setMinValue(Integer minValue) {
 		this.minValue = minValue;
 	}
 
-	public int getMaxValue() {
+	public Integer getMaxValue() {
 		return maxValue;
 	}
 
-	public void setMaxValue(int maxValue) {
+	public void setMaxValue(Integer maxValue) {
 		this.maxValue = maxValue;
 	}
 

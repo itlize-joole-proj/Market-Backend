@@ -5,8 +5,8 @@ import com.itlize.marketBackend.domain.Buyer;
 public interface BuyerService {
 //	Yipeng 
 	Buyer getBuyer(int buyerId);
-	Buyer getBuyer(String username);
+	Buyer getBuyer(Buyer buyer) throws Throwable;
 	Buyer validation(String username, String password);
-	boolean addBuyer(Buyer buyer);
+	boolean addBuyer(Buyer buyer) throws Throwable;
 	boolean isBuyerExist(String username);
 }

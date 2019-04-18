@@ -24,22 +24,7 @@ public class BuyerController {
 	private BuyerService buyerService;
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public void addBuyer(@RequestBody Buyer new_buyer) {
-		if (new_buyer.getUsername() == null) {
-			System.out.println("Please enter username");
-		}
-		if (new_buyer.getPassword() == null) {
-			System.out.println("Please enter password");
-		}
-		if (new_buyer.getFirstname() == null) {
-			System.out.println("Please enter Fist Name");
-		}
-		if (new_buyer.getLastname() == null) {
-			System.out.println("Please enter Last Name");
-		}
-		if (new_buyer.getEmail() == null) {
-			System.out.println("Please enter email address");
-		}
+	public void addBuyer(@RequestBody Buyer new_buyer) throws Throwable {
 		if (!buyerService.addBuyer(new_buyer)) {
 			System.out.println("User already existed!!! Failed to register...");
 		} else {
@@ -48,24 +33,16 @@ public class BuyerController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public Buyer getBuyer(@RequestBody Buyer user) {
-		String buyerName = user.getUsername();
-		String password = user.getPassword();
-		if (buyerName == null || buyerName.length() == 0) {
-			System.out.println("Please enter username!!!");
-			return null;
-		}
-		if (password == null || password.length() == 0) {
-			System.out.println("Please enter password");
-			return null;
-		}
-		Buyer buyer = buyerService.getBuyer(user.getUsername());
+	public Buyer getBuyer(@RequestBody Buyer user) throws Throwable {
+		
+		Buyer buyer = buyerService.getBuyer(user);
+		
 		if (buyer == null) {
-			System.out.println("Not Found user!!! -> " + buyerName);
-			return null;
+			System.out.println("Not Found user!!! -> " + user.getUsername());
+			throw new Exception("User Not found!!!");
 		} else if (!buyer.getPassword().equals(user.getPassword())) {
 			System.out.println("Password not match!!!");
-			return null;
+			throw new Exception("Password not match!!!");
 		}
  
         return buyer;

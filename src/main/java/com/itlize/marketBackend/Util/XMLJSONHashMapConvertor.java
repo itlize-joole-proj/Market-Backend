@@ -36,6 +36,7 @@ public class XMLJSONHashMapConvertor {
 		return map;
 	}
 
+	@SuppressWarnings("unused")
 	public static Map<String, Object> jsonToMap2(String jsonString) {
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> map = null;

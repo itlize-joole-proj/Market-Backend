@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.itlize.marketBackend.domain.Manufacturer;
 import com.itlize.marketBackend.domain.Product;
-import com.itlize.marketBackend.domain.Range;
 import com.itlize.marketBackend.domain.Sales;
 
 public interface ProductService {

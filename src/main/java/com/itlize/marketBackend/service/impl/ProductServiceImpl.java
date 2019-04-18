@@ -1,5 +1,6 @@
 package com.itlize.marketBackend.service.impl;
 
+import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,16 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> getAllSubCateProducts(int subCategoryID) {
 		// TODO Auto-generated method stub
-		return productDao.getAllSubCateProducts(subCategoryID);
+		List<Object[]> rs = productDao.getAllSubCateProducts(subCategoryID);
+		List<Product> ret = new LinkedList<>();
+		for(Object[] p: rs) {
+			System.out.println(p);
+			Product pdt = new Product();
+			pdt.setDescription((String) p[0]);
+			pdt.setAttributes((String) p[1]);
+			ret.add(pdt);
+		}
+		return ret;
 	}
 
 	@Override
@@ -38,6 +48,7 @@ public class ProductServiceImpl implements ProductService {
 
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Product> filter(Map<String, Object> filterParams, int subCategoryID) {
 		// TODO Auto-generated method stub
 		List<Product> originProducts = this.getAllSubCateProducts(subCategoryID);

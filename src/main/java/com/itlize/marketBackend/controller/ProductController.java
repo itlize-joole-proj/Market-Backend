@@ -28,12 +28,12 @@ public class ProductController {
 		System.out.println("ProductController initialization...");
 	}
 
-	@RequestMapping(value = "/Manufacturer/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/manufacturer/{id}", method = RequestMethod.GET)
 	public Manufacturer getManufacturerInfo(@PathVariable("id") String manuId) {
 		return productService.getManufacturer(Integer.parseInt(manuId));
 	}
 
-	@RequestMapping(value = "/Sale/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/sale/{id}", method = RequestMethod.GET)
 	public Sales getSaleInfo(@PathVariable("id") String saleId) {
 		return productService.getSale(Integer.parseInt(saleId));
 	}
