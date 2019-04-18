@@ -16,7 +16,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class xmlParser {
+public class XmlParser {
 
 	class MyNodeList implements NodeList {
 		List<Node> nodes = new ArrayList<Node>();
@@ -50,11 +50,11 @@ public class xmlParser {
 	private File xmlFile = null;
 	private Document doc = null;
 
-	public xmlParser(String xmlString) {
+	public XmlParser(String xmlString) {
 		this.xmlString = xmlString;
 	}
 
-	public xmlParser(File xmlFile) {
+	public XmlParser(File xmlFile) {
 		this.xmlFile = xmlFile;
 	}
 
@@ -74,7 +74,7 @@ public class xmlParser {
 			NodeList resultNode = doc.getChildNodes();
 
 			HashMap resultMap = new HashMap();
-			xmlParser.MyNodeList tempNodeList = new xmlParser.MyNodeList();
+			XmlParser.MyNodeList tempNodeList = new XmlParser.MyNodeList();
 
 			String emptyNodeName = null, emptyNodeValue = null;
 
@@ -106,7 +106,7 @@ public class xmlParser {
 			if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.hasChildNodes() && nNode.getFirstChild() != null
 					&& (nNode.getFirstChild().getNextSibling() != null || nNode.getFirstChild().hasChildNodes())) {
 				NodeList childNodes = nNode.getChildNodes();
-				xmlParser.MyNodeList tempNodeList = new xmlParser.MyNodeList();
+				XmlParser.MyNodeList tempNodeList = new XmlParser.MyNodeList();
 				for (int index = 0; index < childNodes.getLength(); index++) {
 					Node tempNode = childNodes.item(index);
 					if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -221,13 +221,13 @@ public class xmlParser {
 	}
 
 	public static Map operation_inputXmlString(String xmlstring) {
-		xmlParser XmlParser = new xmlParser(xmlstring);
+		XmlParser XmlParser = new XmlParser(xmlstring);
 		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
 
 	public static Map operation_inputXmlFile(File FileName) {
-		xmlParser XmlParser = new xmlParser(FileName);
+		XmlParser XmlParser = new XmlParser(FileName);
 		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
