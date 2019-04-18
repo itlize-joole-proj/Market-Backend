@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.itlize.marketBackend.dao.CategoryDAO;
 import com.itlize.marketBackend.dao.SubCategoryDAO;
-import com.itlize.marketBackend.domain.AttributeType;
 import com.itlize.marketBackend.domain.SubCategory;
 import com.itlize.marketBackend.service.CategoryService;
 
@@ -29,7 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
 	CategoryDAO categoryDAO;
 
 	@Override
-	public List<SubCategory> getSubCate(String Category) {
+	public List<SubCategory> getSubCate(String Category) throws Throwable {
 		// TODO Auto-generated method stub
 		return categoryDAO.getSubCate(Category);
 	}

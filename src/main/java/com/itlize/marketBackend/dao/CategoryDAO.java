@@ -9,7 +9,7 @@ public interface CategoryDAO {
 
 //	Map<String, String> getAllSubCateNames(String cateName); // -> subCate list
 
-	List<SubCategory> getSubCate(String Category);
+	List<SubCategory> getSubCate(String Category) throws Throwable;
 
 	Category hasCategory(String category);
 	
