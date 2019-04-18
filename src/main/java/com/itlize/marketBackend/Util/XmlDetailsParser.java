@@ -16,7 +16,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class XmlParser {
+public class XmlDetailsParser {
 
 	class MyNodeList implements NodeList {
 		List<Node> nodes = new ArrayList<Node>();
@@ -50,11 +50,11 @@ public class XmlParser {
 	private File xmlFile = null;
 	private Document doc = null;
 
-	public XmlParser(String xmlString) {
+	public XmlDetailsParser(String xmlString) {
 		this.xmlString = xmlString;
 	}
 
-	public XmlParser(File xmlFile) {
+	public XmlDetailsParser(File xmlFile) {
 		this.xmlFile = xmlFile;
 	}
 
@@ -74,7 +74,7 @@ public class XmlParser {
 			NodeList resultNode = doc.getChildNodes();
 
 			HashMap resultMap = new HashMap();
-			XmlParser.MyNodeList tempNodeList = new XmlParser.MyNodeList();
+			XmlDetailsParser.MyNodeList tempNodeList = new XmlDetailsParser.MyNodeList();
 
 			String emptyNodeName = null, emptyNodeValue = null;
 
@@ -106,7 +106,7 @@ public class XmlParser {
 			if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.hasChildNodes() && nNode.getFirstChild() != null
 					&& (nNode.getFirstChild().getNextSibling() != null || nNode.getFirstChild().hasChildNodes())) {
 				NodeList childNodes = nNode.getChildNodes();
-				XmlParser.MyNodeList tempNodeList = new XmlParser.MyNodeList();
+				XmlDetailsParser.MyNodeList tempNodeList = new XmlDetailsParser.MyNodeList();
 				for (int index = 0; index < childNodes.getLength(); index++) {
 					Node tempNode = childNodes.item(index);
 					if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -221,13 +221,13 @@ public class XmlParser {
 	}
 
 	public static Map operation_inputXmlString(String xmlstring) {
-		XmlParser XmlParser = new XmlParser(xmlstring);
+		XmlDetailsParser XmlParser = new XmlDetailsParser(xmlstring);
 		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
 
 	public static Map operation_inputXmlFile(File FileName) {
-		XmlParser XmlParser = new XmlParser(FileName);
+		XmlDetailsParser XmlParser = new XmlDetailsParser(FileName);
 		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
