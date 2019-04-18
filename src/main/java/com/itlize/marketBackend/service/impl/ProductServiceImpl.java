@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.itlize.marketBackend.Util.XmlParser;
+import com.itlize.marketBackend.Util.XmlDetailsParser;
 import com.itlize.marketBackend.dao.ManufacturerDAO;
 import com.itlize.marketBackend.dao.ProductDAO;
 import com.itlize.marketBackend.dao.SalesDAO;
@@ -71,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
 			Product p = originProducts.get(i);
 //			attributes = ParseXml.parseAttributes(p.getAttributes());
 //			attributes = dummyAttr.get(i % 2);
-			Map<String, Map<String, String>>attributesMap = (Map<String, Map<String, String>>)XmlParser.operation_inputXmlString(p.getAttributes());
+			Map<String, Map<String, String>>attributesMap = (Map<String, Map<String, String>>)XmlDetailsParser.operation_inputXmlString(p.getAttributes());
 			attributes = attributesMap.get(ATTRIBUTE);
 			boolean flag = true;
 			for(String key: filterParams.keySet()) {
