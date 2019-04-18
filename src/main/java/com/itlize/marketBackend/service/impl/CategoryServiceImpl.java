@@ -28,7 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
 	CategoryDAO categoryDAO;
 
 	@Override
-	public List<SubCategory> getSubCate(String Category) {
+	public List<SubCategory> getSubCate(String Category) throws Throwable {
 		// TODO Auto-generated method stub
 		return categoryDAO.getSubCate(Category);
 	}
@@ -36,7 +36,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Boolean hasCategory(String category) {
 		// TODO Auto-generated method stub
-		return categoryDAO.hasCategory(category);
+		return categoryDAO.hasCategory(category) != null;
 	}
 
 }

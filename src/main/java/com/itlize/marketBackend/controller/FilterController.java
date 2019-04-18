@@ -33,7 +33,7 @@ public class FilterController {
 		return filterService.getFilterAttributes(subCategoryId);
 	}
 	
-	@RequestMapping(value = "/attributeTypes", method = RequestMethod.GET)
+	@RequestMapping(value = "/attributePart", method = RequestMethod.GET)
 	public List<AttributeType> getAllAttributeTypes() {
 		return filterService.getAllAttributeTypes();
 	}

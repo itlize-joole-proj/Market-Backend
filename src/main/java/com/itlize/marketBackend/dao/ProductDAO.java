@@ -7,7 +7,7 @@ import com.itlize.marketBackend.domain.Product;
 
 public interface ProductDAO {
 
-	List<Product> getAllSubCateProducts(int subCategoryID);
+	List<Object[]> getAllSubCateProducts(int subCategoryID);
 
 	//List<String> getSubCate(String Cate);
 
