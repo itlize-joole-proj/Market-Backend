@@ -2,11 +2,14 @@ package com.itlize.marketBackend.controller;
 
 //import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itlize.marketBackend.Util.exceptions.UserNotFoundException;
 import com.itlize.marketBackend.domain.Buyer;
 import com.itlize.marketBackend.service.BuyerService;
 
@@ -46,6 +49,13 @@ public class BuyerController {
 		}
  
         return buyer;
+	}
+	
+	//test rest controller advice
+	@RequestMapping(value="/buyers/{username}", method=RequestMethod.GET)
+	public ResponseEntity<?> testEx(@PathVariable("username") String username) {
+		System.out.println("test!");
+		throw new UserNotFoundException(username);
 	}
 
 }
