@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
 import com.itlize.marketBackend.Util.exceptions.ApiErrorResponse;
+import com.itlize.marketBackend.Util.exceptions.AuthenticationException;
 import com.itlize.marketBackend.Util.exceptions.UserNotFoundException;
 
 @RestControllerAdvice
@@ -24,6 +25,16 @@ public class WebControllerAdvice {
 				.withStatus(HttpStatus.NOT_FOUND)
 				.withError_code(HttpStatus.NOT_FOUND.name())
 				.withMessage(ex.getLocalizedMessage())
+				.build();
+		return new ResponseEntity<>(response, response.getStatus());
+	}
+	
+	@ExceptionHandler(AuthenticationException.class)
+	public ResponseEntity<?> handleAuth(AuthenticationException ex) {
+		ApiErrorResponse response = new ApiErrorResponse.ApiErrorResponseBuilder()
+				.withStatus(HttpStatus.UNAUTHORIZED)
+				.withError_code(HttpStatus.UNAUTHORIZED.name())
+				.withMessage("Bad Credentials!")
 				.build();
 		return new ResponseEntity<>(response, response.getStatus());
 	}
