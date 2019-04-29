@@ -2,7 +2,10 @@ package com.itlize.marketBackend.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,5 +56,9 @@ public class ProductController {
 		return productService.getProduct(productId);
 	}
 
+	@ModelAttribute
+	public void setVaryResponseHeader(HttpServletResponse response) {
+	    response.setHeader("Access-Control-Allow-Origin", "*");
+	}
 
 }
