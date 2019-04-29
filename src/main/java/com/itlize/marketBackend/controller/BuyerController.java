@@ -1,5 +1,13 @@
 package com.itlize.marketBackend.controller;
 
+
+import javax.servlet.http.HttpServletResponse;
+
+//import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import static org.springframework.http.ResponseEntity.ok;
 
 import java.util.ArrayList;
@@ -14,6 +22,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 //import org.springframework.security.core.AuthenticationException;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +36,7 @@ import com.itlize.marketBackend.service.BuyerService;
 import com.itlize.marketBackend.Util.exceptions.AuthenticationException;
 
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class BuyerController {
 	
 //	private static final Logger logger = Logger
@@ -93,5 +103,12 @@ public class BuyerController {
 		System.out.println("test!");
 		throw new UserNotFoundException(username);
 	}
+	
+//	@ModelAttribute
+//	public void setVaryResponseHeader(HttpServletResponse response) {
+//		response.setHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin");
+//	    response.setHeader("Access-Control-Allow-Origin", "*");
+//	    response.setHeader("crossDomain", "true");
+//	}  
 
 }
