@@ -1,9 +1,11 @@
 package com.itlize.marketBackend.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.itlize.marketBackend.Util.exceptions.AuthenticationException;
 import com.itlize.marketBackend.dao.BuyerDAO;
 import com.itlize.marketBackend.domain.Buyer;
 import com.itlize.marketBackend.service.BuyerService;
@@ -60,16 +62,16 @@ public class BuyerServiceImpl implements BuyerService {
 	}
 
 	@Override
-	public Buyer validation(String username, String password) {
+	public Buyer validation(String username, String password) throws Exception{
 		// TODO Auto-generated method stub
 		Buyer buyer = buyerDao.getBuyer(username);
 		if(buyer != null) {
 			if(buyer.getPassword().equals(password)) return buyer;
-			else buyer.setMessage("Username and password does not match!");
+			
+//			else throw new Exception("bad credentials!");
 		}
-		Buyer b = new Buyer();
-		b.setMessage("Username not found!");
-		return b;
+//		else throw new Exception("User not found!");
+		throw new AuthenticationException();
 	}
 
 
