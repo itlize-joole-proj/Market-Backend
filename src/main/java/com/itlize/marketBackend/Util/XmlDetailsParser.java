@@ -16,7 +16,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class xmlParser {
+public class XmlDetailsParser {
 
 	class MyNodeList implements NodeList {
 		List<Node> nodes = new ArrayList<Node>();
@@ -50,11 +50,11 @@ public class xmlParser {
 	private File xmlFile = null;
 	private Document doc = null;
 
-	public xmlParser(String xmlString) {
+	public XmlDetailsParser(String xmlString) {
 		this.xmlString = xmlString;
 	}
 
-	public xmlParser(File xmlFile) {
+	public XmlDetailsParser(File xmlFile) {
 		this.xmlFile = xmlFile;
 	}
 
@@ -74,7 +74,7 @@ public class xmlParser {
 			NodeList resultNode = doc.getChildNodes();
 
 			HashMap resultMap = new HashMap();
-			xmlParser.MyNodeList tempNodeList = new xmlParser.MyNodeList();
+			XmlDetailsParser.MyNodeList tempNodeList = new XmlDetailsParser.MyNodeList();
 
 			String emptyNodeName = null, emptyNodeValue = null;
 
@@ -106,7 +106,7 @@ public class xmlParser {
 			if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.hasChildNodes() && nNode.getFirstChild() != null
 					&& (nNode.getFirstChild().getNextSibling() != null || nNode.getFirstChild().hasChildNodes())) {
 				NodeList childNodes = nNode.getChildNodes();
-				xmlParser.MyNodeList tempNodeList = new xmlParser.MyNodeList();
+				XmlDetailsParser.MyNodeList tempNodeList = new XmlDetailsParser.MyNodeList();
 				for (int index = 0; index < childNodes.getLength(); index++) {
 					Node tempNode = childNodes.item(index);
 					if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -221,14 +221,14 @@ public class xmlParser {
 	}
 
 	public static Map operation_inputXmlString(String xmlstring) {
-		xmlParser xmlParser = new xmlParser(xmlstring);
-		Map xmlMap = xmlParser.parseXML();
+		XmlDetailsParser XmlParser = new XmlDetailsParser(xmlstring);
+		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
 
 	public static Map operation_inputXmlFile(File FileName) {
-		xmlParser xmlParser = new xmlParser(FileName);
-		Map xmlMap = xmlParser.parseXML();
+		XmlDetailsParser XmlParser = new XmlDetailsParser(FileName);
+		Map xmlMap = XmlParser.parseXML();
 		return xmlMap;
 	}
 
@@ -237,10 +237,13 @@ public class xmlParser {
 				+ "       <title>Author</title>" + "   </employee>" + "   <employee id=\"102\">"
 				+ "        <name>Brian Lara</name>" + "       <title>Cricketer</title>" + "   </employee>"
 				+ "</employees>";
+		System.out.println(xmlStr);
+		String s = "<product><Air.flow>6000</Air.flow><MaxPower>20</MaxPower></product>";
+		Map map = operation_inputXmlString(s);
+		System.out.println(map);
+		for(Object o: map.values()) System.out.println(o);
 
-		System.out.println(operation_inputXmlString(xmlStr));
-
-		File file = new File("Buyers.xml");
-		System.out.println(operation_inputXmlFile(file));
+//		File file = new File("Buyers.xml");
+//		System.out.println(operation_inputXmlFile(file));
 	}
 }

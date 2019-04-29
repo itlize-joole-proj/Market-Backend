@@ -11,7 +11,17 @@
 
 	<!-- Specifying base package of the Components like Controller, Service, 
 		DAO -->
-	<context:component-scan base-package="com.itlize.marketBackend" />
+	<context:component-scan
+		base-package="com.itlize.marketBackend" />
+
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:mapping path="/Category/**" />
+			<mvc:exclude-mapping path="/login" />
+			<bean class="com.itlize.marketBackend.config.MyInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors> -->
 
 	<!-- Getting Database properties -->
 	<context:property-placeholder
@@ -52,7 +62,8 @@
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 			</props>
 		</property>
-		<property name="packagesToScan" value="com.itlize.marketBackend.domain"></property>
+		<property name="packagesToScan"
+			value="com.itlize.marketBackend.domain"></property>
 	</bean>
 
 	<!-- Transaction -->
