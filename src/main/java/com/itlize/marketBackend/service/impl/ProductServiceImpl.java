@@ -38,6 +38,7 @@ public class ProductServiceImpl implements ProductService {
 			pdt.setDescription((String) p[0]);
 			Map<String, Map<String, String>> map = (Map<String, Map<String, String>>)XmlDetailsParser.operation_inputXmlString((String)p[1]);
 			pdt.setAttributes(map.get("attribute"));
+			pdt.setProductId((int) p[2]);
 			ret.add(pdt);
 		}
 		return ret;
