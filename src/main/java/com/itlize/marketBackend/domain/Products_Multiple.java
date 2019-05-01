@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Products_Multiple {
+	private int productId;
 	private String description;
 	private Map<String, String> attributes;
 	
@@ -20,5 +21,11 @@ public class Products_Multiple {
 	}
 	public void setAttributes(Map<String, String> attributes) {
 		this.attributes = attributes;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 }
